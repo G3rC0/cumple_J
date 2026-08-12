@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Feliz Cumpleaños!</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #3b1e6e 0%, #6d28d9 40%, #a855f7 75%, #f0abfc 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 100px;
+  }
+
+  /* Confetti */
+  .confetti {
+    position: fixed;
+    top: -10px;
+    width: 10px;
+    height: 16px;
+    opacity: 0.9;
+    animation: fall linear infinite;
+    z-index: 1;
+  }
+  @keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.8; }
+  }
+
+  /* Balloons */
+  .balloon {
+    position: fixed;
+    bottom: -120px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: float linear infinite;
+    z-index: 1;
+    opacity: 0.85;
+  }
+  .balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    width: 1px;
+    height: 30px;
+    background: rgba(255,255,255,0.5);
+  }
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-60vh) translateX(30px); }
+    100% { transform: translateY(-120vh) translateX(-20px); }
+  }
+
+  .card {
+    position: relative;
+    z-index: 5;
+    max-width: 640px;
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 28px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(59, 30, 110, 0.5);
+  }
+
+  .emoji-row {
+    font-size: 40px;
+    margin-bottom: 10px;
+    letter-spacing: 12px;
+  }
+
+  h1 {
+    font-family: 'Georgia', serif;
+    font-size: 44px;
+    color: #fff;
+    text-shadow: 0 4px 20px rgba(168, 85, 247, 0.8);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+  }
+
+  .name {
+    font-size: 52px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #f0abfc, #facc15, #f0abfc);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 3s linear infinite;
+    margin: 10px 0 20px;
+  }
+  @keyframes shine {
+    to { background-position: 200% center; }
+  }
+
+  .date-badge {
+    display: inline-block;
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.6);
+    color: #fef08a;
+    padding: 10px 26px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+  }
+
+  .message {
+    color: #f3e8ff;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+
+  .divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #facc15, transparent);
+    margin: 0 auto 30px;
+    border-radius: 2px;
+  }
+
+  .wishes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .wish-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 16px 12px;
+    color: #fdf4ff;
+    font-size: 14px;
+  }
+  .wish-item .ico { font-size: 26px; display: block; margin-bottom: 6px; }
+
+  .footer-note {
+    margin-top: 30px;
+    font-size: 13px;
+    color: rgba(243, 232, 255, 0.65);
+    letter-spacing: 0.5px;
+  }
+
+  @media (max-width: 480px) {
+    .card { padding: 36px 22px; }
+    h1 { font-size: 32px; }
+    .name { font-size: 38px; }
+    .wishes { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="emoji-row">🎉 🎈 🎂 🎈 🎉</div>
+  <h1>¡Feliz Cumpleaños!</h1>
+  <div class="name">Joshelin :D</div>
+  <div class="date-badge">24 de octubre</div>
+
+  <p class="message">
+    Hoy celebramos a una persona increíble. Que este nuevo año de vida
+    esté lleno de alegría, risas compartidas, sueños cumplidos y muchísimo
+    color morado, tu favorito. ¡Que lo disfrutes al máximo!
+  </p>
+
+  <div class="divider"></div>
+
+  <div class="wishes">
+    <div class="wish-item"><span class="ico">💜</span>Amor infinito</div>
+    <div class="wish-item"><span class="ico">✨</span>Sueños cumplidos</div>
+    <div class="wish-item"><span class="ico">🥳</span>Mucha felicidad</div>
+    <div class="wish-item"><span class="ico">🎁</span>Sorpresas lindas</div>
+  </div>
+
+  <p class="footer-note">Con cariño, tus seres queridos 💜</p>
+</div>
+
+<script>
+  // Confetti
+  const colors = ['#a855f7', '#f0abfc', '#facc15', '#c084fc', '#f9a8d4', '#ffffff'];
+  const shapes = ['circle', 'square'];
+  for (let i = 0; i < 45; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+    c.style.animationDuration = (Math.random() * 4 + 5) + 's';
+    c.style.animationDelay = (Math.random() * 6) + 's';
+    if (shapes[Math.floor(Math.random() * shapes.length)] === 'circle') {
+      c.style.borderRadius = '50%';
+    }
+    document.body.appendChild(c);
+  }
+
+  // Balloons
+  const balloonColors = ['#a855f7', '#f0abfc', '#c084fc', '#facc15'];
+  for (let i = 0; i < 8; i++) {
+    const b = document.createElement('div');
+    b.className = 'balloon';
+    const size = Math.random() * 30 + 50;
+    b.style.width = size + 'px';
+    b.style.height = size * 1.2 + 'px';
+    b.style.left = Math.random() * 90 + 'vw';
+    b.style.background = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+    b.style.animationDuration = (Math.random() * 8 + 12) + 's';
+    b.style.animationDelay = (Math.random() * 10) + 's';
+    document.body.appendChild(b);
+  }
+</script>
+
+</body>
+</html>
